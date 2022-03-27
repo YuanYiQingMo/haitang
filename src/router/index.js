@@ -10,22 +10,22 @@ const routes = [
     name: 'Open',
     component: Open
   },
-  {
-    path: '/big-button',
-    name: 'BigButton',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/BigButton.vue')
-  },
-  {
-    path: '/canvas',
-    name: 'Canvas',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Canvas.vue')
-  },
+  // {
+  //   path: '/big-button',
+  //   name: 'BigButton',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/BigButton.vue')
+  // },
+  // {
+  //   path: '/canvas',
+  //   name: 'Canvas',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/Canvas.vue')
+  // },
   {
     path: '/collection',
     name: 'Collection',
