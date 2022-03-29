@@ -2,9 +2,12 @@
     <div id="homepage">
         <transition >
             <div v-if="currentPage == 1" id="background" @click="nextPage" key="first-page"></div>
-            <div v-if="currentPage == 2" id="normal" key="second-page">
+            <div v-if="currentPage == 2" id="normal" class="normal" key="second-page">
                 <big-button></big-button>
-                <img src="../assets/click/arrows.png" id="arrows"/>
+                <img src="../assets/click/arrows.svg" id="arrows"/>
+            </div>
+            <div v-if="currentPage == 3" id="canvas" class="normal" key="third-page">
+                <Canvas></Canvas>
             </div>
         </transition>
     </div>
@@ -12,8 +15,9 @@
 
 <script>
 import BigButton from '../components/BigButton.vue';
+import Canvas from '../components/Canvas.vue';
 export default {
-    components: { BigButton },
+    components: { BigButton, Canvas },
     data(){
         return{
             currentPage:1,
@@ -21,7 +25,7 @@ export default {
     },
     methods:{
         nextPage(){
-            this.currentPage = 2;
+            this.currentPage++;
         }
     }
 };
@@ -52,8 +56,8 @@ export default {
     right: 0;
     margin: 0 50%;
     transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 100vw;
+    width: 50vw;
+    height: 50vw;
     animation-name: beat;
     /*动画名称*/
     animation-duration: 1s;
@@ -86,7 +90,7 @@ export default {
     background-attachment: fixed;
 }
 
-#normal {
+.normal {
     display: flex;
     justify-content: center;
     width: 100%;
