@@ -2,7 +2,7 @@
     <div id="save">
         <div id="background"></div>
         <div id="content">
-            <div class="collection">我 的 集 卡</div>
+            <div class="collection" @click="goCollection">我 的 集 卡</div>
             <img class="picture" src="../assets/card/background.png">
             <div class="saveButton" @click="tosave">保 存 图 片</div>
             <div class="saved" v-show=savedimg>已保存至图库</div>
@@ -17,6 +17,11 @@ export default {
             savedimg:false,
         }
     },
+    beforeCreate(){
+        let card = this.$route.query.card
+        console.log(card)
+
+    },
     methods: {
         tosave:function(){
             let that = this;
@@ -24,8 +29,11 @@ export default {
             setTimeout(function () {
                 that.savedimg=false
                 console.log(this.savedimg)
-        }, 2000)
+            }, 2000)
         },
+        goCollection(){
+            this.$router.push({path: '/collection'})
+        }
     }
 }
 </script>
@@ -47,9 +55,9 @@ export default {
     width: 84%;
     height: 90%;
     margin:40px 30px;
-    // display: flex;
+    /* // display: flex;
     // flex-direction: column;
-    // justify-content: space-between;
+    // justify-content: space-between; */
     align-items: center;
 }
 .collection{

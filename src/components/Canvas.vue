@@ -84,8 +84,29 @@
           this.points.push(obj)
         }
       },
+      randomCard(){
+        var numdsf = Math.floor(Math.random()*(1 - 100) + 100);
+        if(numdsf>=1&&numdsf<=10){
+            return 1;
+        }else if(numdsf>=11&&numdsf<=20){
+            return 2;
+        }else if(numdsf>=21&&numdsf<=40){
+            return 3;
+        }else if(numdsf>=41&&numdsf<=60){
+            return 4;
+        }else if(numdsf>=61&&numdsf<=70){
+            return 5;
+        }else if(numdsf>=71&&numdsf<=80){
+            return 6;
+        }else if(numdsf>=81&&numdsf<=90){
+            return 7;
+        }else if(numdsf>=91&&numdsf<=100){
+            return 8;
+        }
+      },
       touchEnd() {
-        console.log("finished")
+        //返回随机卡片序号
+        this.$router.push({path: '/end',query:{card: this.randomCard()}})
         // this.canvasTxt.clearRect(0,0,9999,9999); //绘图完毕清空canvas
       },
 
