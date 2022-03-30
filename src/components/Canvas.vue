@@ -41,7 +41,6 @@
       this.top = this.$refs.canvasHW.offsetHeight*0.30
       this.canvasTxt = canvas.getContext('2d')
       this.stageInfo = canvas.getBoundingClientRect()
-      console.log(this.$refs.canvasHW.offsetHeight)
     },
     methods: {
       //mobile
