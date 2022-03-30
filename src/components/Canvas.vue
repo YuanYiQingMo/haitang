@@ -2,21 +2,96 @@
   <div style="width: 100vw;height: 100vh;">
     <img id="background" src="../assets/background.png"/>
     <div id="content">
-      <img id="pad" src="../assets/draw/pad.png"/>
+      <img id="pad" src="../assets/draw/pad.png" ref="canvasHW"/>
       <div id="text">
         <div class="font">随心画海棠符<span></span></div>
         <div class="font">抽限定明信片<span></span></div>
       </div>
     </div>
-    <canvas id="canvas"></canvas>
+    <canvas ref="canvasF" @touchstart='touchStart' @touchmove='touchMove' @touchend='touchEnd' :style="{top: top+'px'}"></canvas>
   </div>
 </template>
 <script>
   export default {
-      methods:{
-
+    data() {
+      return {
+        stageInfo:'',
+        imgUrl:'',
+        client: {},
+        points: [],
+        canvasTxt: null,
+        startX: 0,
+        startY: 0,
+        moveY: 0,
+        moveX: 0,
+        endY: 0,
+        endX: 0,
+        w: null,
+        h: null,
+        isDown: false,
+        isViewAutograph: this.$route.query.isViews > 0,
+        contractSuccess: this.$route.query.contractSuccess,
+        top:''
       }
-  };
+    },
+    mounted() {
+      let canvas = this.$refs.canvasF
+      canvas.height = this.$refs.canvasHW.offsetHeight*0.68
+      canvas.width = this.$refs.canvasHW.offsetWidth*0.71
+      this.top = this.$refs.canvasHW.offsetHeight*0.30
+      this.canvasTxt = canvas.getContext('2d')
+      this.stageInfo = canvas.getBoundingClientRect()
+      console.log(this.$refs.canvasHW.offsetHeight)
+    },
+    methods: {
+      //mobile
+      touchStart(ev) {
+        ev = ev || event
+        ev.preventDefault()
+        if (ev.touches.length == 1) {
+          let obj = {
+            x: ev.targetTouches[0].clienX,
+            y: ev.targetTouches[0].clientY,
+          }
+          this.startX = obj.x
+          this.startY = obj.y
+          this.canvasTxt.beginPath()
+          this.canvasTxt.moveTo(this.startX, this.startY)
+          this.canvasTxt.lineTo(obj.x, obj.y)
+          this.canvasTxt.stroke()
+          this.canvasTxt.closePath()
+          this.points.push(obj)
+        }
+      },
+      touchMove(ev) {
+        ev = ev || event
+        ev.preventDefault()
+        if (ev.touches.length == 1) {
+          let obj = {
+            x: ev.targetTouches[0].clientX - this.stageInfo.left,
+            y: ev.targetTouches[0].clientY - this.stageInfo.top
+          }
+          this.canvasTxt.lineWidth = 8;
+          this.canvasTxt.strokeStyle = "#b1898d";
+          this.moveY = obj.y
+          this.moveX = obj.x
+          this.canvasTxt.beginPath()
+          this.canvasTxt.moveTo(this.startX, this.startY)
+          this.canvasTxt.lineTo(obj.x, obj.y)
+          this.canvasTxt.stroke()
+          this.canvasTxt.closePath()
+          this.startY = obj.y
+          this.startX = obj.x
+          this.points.push(obj)
+        }
+      },
+      touchEnd() {
+        console.log("finished")
+        // this.canvasTxt.clearRect(0,0,9999,9999); //绘图完毕清空canvas
+      },
+
+  }
+}
 </script>
 <style>
   #background{
@@ -34,8 +109,8 @@
     
   }
   #pad{
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 162vw;
   }
   #text{
     margin-top: 5px;
@@ -57,10 +132,9 @@
     display: inline-block;
     padding-left: 100%;
   }
-  #canvas{
+  canvas{
     position: absolute;
-    border: 5px dashed #cccccc;
-    width: 70vh;
-    top:28vh
+    top:28vh;
+    left:15vw;
   }
 </style>

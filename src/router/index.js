@@ -11,9 +11,9 @@ const routes = [
     name: 'draw',
     component: () => import(/* webpackChunkName: "about" */ '../components/Canvas.vue')
   },
-//
+
   {
-    path: '/x',
+    path: '/',
     name: 'Open',
     component: Open,
   },
