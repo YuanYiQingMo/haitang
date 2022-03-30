@@ -52,8 +52,8 @@ img#background{
     right: 0;
     margin: 0 50%;
     transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 50vw;
+    width: 30vw;
+    height: 25vw;
     animation-name: beat;
     /*动画名称*/
     animation-duration: 1s;
@@ -70,10 +70,10 @@ img#background{
 
 @keyframes beat {
         0% {
-            top:60vh;
+            top:55vh;
         }
         100% {
-            top:62vh;
+            top:57vh;
         }
     }
 

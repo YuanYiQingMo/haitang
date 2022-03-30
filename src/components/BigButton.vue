@@ -29,9 +29,9 @@ export default {
 }
 #main-btn {
     position: absolute;
-    top: 20vh;
-    width: 70vw;
-    height: 70vw;
+    top: 25vh;
+    width: 50vw;
+    height: 50vw;
     animation:changeRight 15s linear infinite;
     transform: scale(1.0);
     cursor: pointer;
