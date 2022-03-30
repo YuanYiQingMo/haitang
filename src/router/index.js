@@ -5,13 +5,6 @@ import Open from '../views/Open.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // //test
-  //   {
-  //   path: '/',
-  //   name: 'draw',
-  //   component: () => import(/* webpackChunkName: "about" */ '../components/Canvas.vue')
-  // },
-
   {
     path: '/',
     name: 'Open',
