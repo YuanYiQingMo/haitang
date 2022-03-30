@@ -94,6 +94,9 @@
 }
 </script>
 <style>
+  div{
+    overflow: hidden;
+  }
   #background{
     position: absolute;
     width: 100vw;
@@ -126,7 +129,7 @@
     text-align: justify;
     height: 7vw;
     color: #b1898d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*随便选的字体，还没改*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .font>span{
     display: inline-block;

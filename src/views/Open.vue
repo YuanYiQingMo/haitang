@@ -32,18 +32,14 @@ export default {
 </script>
 
 <style lang="scss">
-// 动画
-// .v-enter,.v-leave-to {
-//     opacity: 0;
-//     transform: translateX(50Px);
-// }
-// .v-enter-to, .v-leave {
-//     opacity: 0.4;
-//     transform: translateX(0);
-// }
-// .v-enter-active, .v-leave-active {
-//     transform: all 8s ease;
-// }
+img#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 
 #homepage{
     width: 100%;
