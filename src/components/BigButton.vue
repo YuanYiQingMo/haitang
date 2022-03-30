@@ -6,8 +6,8 @@
 export default {
     methods:{
         play(){
-            console.log(1)
-            this.$emit('nextPage');
+            // this.$emit('nextPage');
+            this.$parent.nextPage();
         }
     }
 };
