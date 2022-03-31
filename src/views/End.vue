@@ -14,7 +14,7 @@
 export default {
     data() {
         return {
-            savedimg:true,
+            savedimg:false,
         }
     },
     beforeCreate(){
@@ -27,7 +27,6 @@ export default {
             this.savedimg=true
             setTimeout(function () {
                 that.savedimg=false
-                console.log(this.savedimg)
             }, 2000)
         },
         goCollection(){
@@ -53,55 +52,52 @@ export default {
 #content{
     position: absolute;
     width: 84%;
-    height: 90%;
-    margin:10% 7%;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between; 
-    // align-items: center;
+    height: 92%;
+    margin:7% 7% 0% 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
 }
 .collection{
-    // height: 7%;
-    width: 40%;
+    flex: 0 0 45px;
+    line-height:45px;
+    width: 150px;
+    font-size: 22px;
     text-align:center;
     background: url("../assets/card/collection.png") no-repeat center center ;
     align-self:flex-end;
-    border-radius: 5px;
-    padding: 3% 0;
-    // font-size: 50%;
+    border-radius: 10px;
     color:#b1898d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .picture{
-    height: 80%;
+    height: 90%;
     width: 100%;
-    margin:7% 2px 7% 2%;
-    border-radius: 5px;
+    margin:5% 0;
+    border-radius: 15px;
     opacity: 0.7;
 }
 .saveButton{
-    // height: 7%;
-    width: 50%;
-    padding: 3% 0;
+    flex:0 0 50px;
+    line-height: 50px;
+    width:160px;
     background: url("../assets/card/save.png") no-repeat center center;
-    border-radius: 5px;
-    // font-size: 1.25rem;
+    border-radius: 10px;
+    font-size: 22px;
     text-align:center;
     color:#b1898d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .saved{
     position: absolute;
     top:45%;
-    height: 4%;
-    width: 50%;
-    padding:3% 0;
+    height: 50px;
+    width: 200px;
+    line-height: 50px;
     background: url("../assets/card/saved.png") no-repeat center center;
-    border-radius: 7px;
-    // font-size: 38%;
+    border-radius: 15px;
+    font-size: 25px;
     text-align:center;
     color:#b1898d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 5px 5px 15px rgba(41, 40, 40, 0.3);
     z-index: 80;
 }
