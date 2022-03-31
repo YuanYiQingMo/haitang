@@ -62,7 +62,7 @@ export default {
 }
 .collection{
     height: 27px;
-    width: 93px;
+    width: 100px;
     padding:3% 6%;
     background: url("../assets/card/collection.png") no-repeat center center ;
     align-self:flex-end;
@@ -80,7 +80,7 @@ export default {
 }
 .saveButton{
     height: 27px;
-    width: 97px;
+    width: 100px;
     padding:3% 6%;
     background: url("../assets/card/save.png") no-repeat center center;
     border-radius: 5px;
