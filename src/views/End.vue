@@ -3,7 +3,7 @@
         <div id="background"></div>
         <div id="content">
             <div class="collection" @click="goCollection">我 的 集 卡</div>
-            <img class="picture" src="../assets/card/background.png">
+            <div class="picture"></div>
             <div class="saveButton" @click="tosave">保 存 图 片</div>
             <div class="saved" v-show=savedimg>已保存至图库</div>
         </div>
@@ -71,10 +71,11 @@ export default {
     color:#b1898d;
 }
 .picture{
-    height: 90%;
+    flex: 1;
     width: 100%;
     margin:5% 0;
     border-radius: 15px;
+    background: url("../assets/card/background.png");
     opacity: 0.7;
 }
 .saveButton{
