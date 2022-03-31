@@ -16,12 +16,26 @@
 <script>
 import BigButton from '../components/BigButton.vue';
 import Canvas from '../components/Canvas.vue';
+import axios from 'axios';
 export default {
     components: { BigButton, Canvas },
     data(){
         return{
             currentPage:1,
         }
+    },
+    beforeCreate(){
+        let token = this.$route.query.token
+        let that = this
+        axios.defaults.baseURL = 'http://101.42.225.75:1000/'
+        axios.post('/api/v1/auth/client', {
+            "token": token,
+        }).then(response => {
+            console.log('/api/v1/auth/client', response.data)
+            that.$store.commit('setToken', response.data.token)
+        }, error => {
+            console.log('错误', error.message)
+        })
     },
     methods:{
         nextPage(){

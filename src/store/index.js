@@ -5,8 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    token:'',
   },
   mutations: {
+    setToken(state,obj){
+			this.state.token = obj
+		},
   },
   actions: {
   },
