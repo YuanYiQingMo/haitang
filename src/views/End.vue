@@ -39,9 +39,9 @@ export default {
 
 <style lang="scss" scoped>
 #save{
-    width: 100%;
-    height: 100%;
-    font-size: 1.2rem;
+    width: 100vw;
+    height: 100vh;
+    font-size: 5vw;
 }
 #background {
     width: 100%;
