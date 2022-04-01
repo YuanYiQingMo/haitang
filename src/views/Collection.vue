@@ -18,7 +18,8 @@ export default {
 #homePage {
   width: 100%;
   height: 100%;
-  background: url(../assets/background.png) no-repeat;
-  background-size: 100% 100%;
+  background: url("../assets/background.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 </style>
