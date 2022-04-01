@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import 'vuex';
 import BigButton from '../components/BigButton.vue';
 import Canvas from '../components/Canvas.vue';
 import axios from 'axios';
@@ -25,14 +26,24 @@ export default {
         }
     },
     beforeCreate(){
-        let token = this.$route.query.token
+        // let token = this.$route.query.token
         let that = this
-        axios.defaults.baseURL = 'http://101.42.225.75:1000/'
-        axios.post('/api/v1/auth/client', {
-            "token": token,
+        // axios.defaults.baseURL = 'http://120.48.17.78:1000'
+        // axios.post('/api/v1/auth/client', {
+        //     "token": token,
+        // }).then(response => {
+        //     console.log('/api/v1/auth/client', response.data)
+        //     that.$store.commit('setToken', response.data.result)
+        // }, error => {
+        //     console.log('错误', error.message)
+        // })
+        axios.defaults.baseURL = 'http://120.48.17.78:1000/'
+        axios.post('/api/v1/auth/wechat', {
+            "password": "132132132",
+            "userNumber":"3021005190"
         }).then(response => {
             console.log('/api/v1/auth/client', response.data)
-            that.$store.commit('setToken', response.data.token)
+            that.$store.commit('setToken', response.data.result)
         }, error => {
             console.log('错误', error.message)
         })

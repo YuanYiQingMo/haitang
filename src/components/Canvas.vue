@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+  import 'vuex';
   import axios from 'axios'
   export default {
     data() {
@@ -109,8 +110,8 @@
         //返回随机卡片序号
         let cardId = this.randomCard();
         this.$router.push({path: '/end',query:{card: cardId}})
-        axios.defaults.baseURL = 'http://101.42.225.75:1000/'
-        axios.post('/api/v1/card/user', {
+        axios.defaults.baseURL = 'http://120.48.17.78:1000'
+        axios.post('/api/v1/card/user'+'?token'+this.$store.state.token, {
             "cardId": cardId,
         }).then(response => {
             console.log('/api/v1/card/user', response.data)
