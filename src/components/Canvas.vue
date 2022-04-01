@@ -4,8 +4,8 @@
     <div id="content">
       <img id="pad" src="../assets/draw/pad.png" ref="canvasHW"/>
       <div id="text">
-        <div class="font">随心画海棠符<span></span></div>
-        <div class="font">抽限定明信片<span></span></div>
+        <div class="font1">随心画海棠符<span></span></div>
+        <div class="font1">抽限定明信片<span></span></div>
       </div>
     </div>
     <canvas ref="canvasF" @touchstart='touchStart' @touchmove='touchMove' @touchend='touchEnd' :style="{top: top+'px'}"></canvas>
@@ -13,7 +13,6 @@
 </template>
 <script>
   import 'vuex';
-  import axios from 'axios'
   export default {
     data() {
       return {
@@ -34,6 +33,7 @@
         isViewAutograph: this.$route.query.isViews > 0,
         contractSuccess: this.$route.query.contractSuccess,
         top:'',
+        Id:['1417768962','-1597935614','474050562','1723953154','1807839234','927035393','-792629246','-1216253950']
       }
     },
     mounted() {
@@ -108,16 +108,16 @@
       },
       touchEnd() {
         //返回随机卡片序号
-        let cardId = this.randomCard();
+        var cardId = this.randomCard();
         this.$router.push({path: '/end',query:{card: cardId}})
-        axios.defaults.baseURL = 'http://120.48.17.78:1000'
-        axios.post('/api/v1/card/user'+'?token'+this.$store.state.token, {
-            "cardId": cardId,
-        }).then(response => {
-            console.log('/api/v1/card/user', response.data)
-        }, error => {
-            console.log('错误', error.message)
-        })
+        console.log(this.Id[cardId-1])
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
+        xhr.send(null);
+        xhr.onload = function(e){
+          var json = JSON.parse(e.target.response)
+          console.log(json);
+        }
       },
 
   }
@@ -154,14 +154,13 @@
     padding: 2.5vw 25vw 2vw 25vw;
     box-sizing: border-box;
   }
-  .font{
+  .font1{
     font-size: 5vw;
     text-align: justify;
     height: 7vw;
     color: #b1898d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  .font>span{
+  .font1>span{
     display: inline-block;
     padding-left: 100%;
   }

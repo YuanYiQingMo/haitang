@@ -1,6 +1,6 @@
 <template>
     <div id="homepage">
-        <transition >
+        <transition name="fade" mode="out-in">
             <div v-if="currentPage == 1" id="background" @click="nextPage" key="first-page"></div>
             <div v-if="currentPage == 2" id="normal" class="normal" key="second-page">
                 <big-button></big-button>
@@ -17,7 +17,7 @@
 import 'vuex';
 import BigButton from '../components/BigButton.vue';
 import Canvas from '../components/Canvas.vue';
-import axios from 'axios';
+// import axios from 'axios';
 export default {
     components: { BigButton, Canvas },
     data(){
@@ -26,27 +26,31 @@ export default {
         }
     },
     beforeCreate(){
-        // let token = this.$route.query.token
         let that = this
-        // axios.defaults.baseURL = 'http://120.48.17.78:1000'
-        // axios.post('/api/v1/auth/client', {
-        //     "token": token,
-        // }).then(response => {
-        //     console.log('/api/v1/auth/client', response.data)
-        //     that.$store.commit('setToken', response.data.result)
-        // }, error => {
-        //     console.log('错误', error.message)
-        // })
-        axios.defaults.baseURL = 'http://120.48.17.78:1000/'
-        axios.post('/api/v1/auth/wechat', {
-            "password": "132132132",
-            "userNumber":"3021005190"
-        }).then(response => {
-            console.log('/api/v1/auth/client', response.data)
-            that.$store.commit('setToken', response.data.result)
-        }, error => {
-            console.log('错误', error.message)
-        })
+        // let token = this.$route.query.token
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/client?token='+token);
+        // xhr.send(null);
+        // xhr.onload = function(e){
+        // var json = JSON.parse(e.target.response)
+        // console.log(json.result);
+        // that.$store.commit('setToken', xhr.response.result)
+        // }
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX110454528QAQ@&userNumber=3021005190');
+        xhr.send(null);
+        xhr.onload = function(e){
+            var json = JSON.parse(e.target.response)
+            console.log(json.result);
+            that.$store.commit('setToken', json.result)
+        }
+    },
+    mounted(){
+        if(this.$route.query.page){
+        this.currentPage = this.$route.query.page
+        }
     },
     methods:{
         nextPage(){
@@ -57,6 +61,14 @@ export default {
 </script>
 
 <style lang="scss">
+
+.fade-enter-active, .fade-leave-active{
+    transition: all 0.5s ease
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0
+}
+
 img#background{
     position: absolute;
     top: 0;
@@ -69,6 +81,7 @@ img#background{
 #homepage{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 #arrows{

@@ -1,6 +1,6 @@
 <template>
   <div id="homePage">
-    <div class="collection">我 的 集 卡</div>
+    <div class="collection1" @click="back">返 回 集 卡</div>
     <div id="main" ref="scroll_div" @touchend='touchEnd'>
       <div id="pictures">
         <div v-for="item in pictures" :key="item.id" class="picture">
@@ -17,22 +17,44 @@
   </div>
 </template>
 <script>
+  import axios from 'axios';
 export default {
   data() {
     return {
       currentPage: 0,
-      pictures:[{"id":1,"url":require("../assets/collectionCard.png"),"collected":true},
-                {"id":2,"url":require("../assets/collectionCard.png"),"collected":true},
-                {"id":5,"url":require("../assets/collectionCard.png"),"collected":true},
-                {"id":6,"url":require("../assets/collectionCard.png"),"collected":true},
+      pictures:[{"id":1,"url":require("../assets/collectionCard.png"),"collected":false},
+                {"id":2,"url":require("../assets/collectionCard.png"),"collected":false},
+                {"id":5,"url":require("../assets/collectionCard.png"),"collected":false},
+                {"id":6,"url":require("../assets/collectionCard.png"),"collected":false},
                 {"id":3,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":4,"url":require("../assets/collectionCard.png"),"collected":true},
-                {"id":7,"url":require("../assets/collectionCard.png"),"collected":true},
-                {"id":8,"url":require("../assets/collectionCard.png"),"collected":true},],
+                {"id":4,"url":require("../assets/collectionCard.png"),"collected":false},
+                {"id":7,"url":require("../assets/collectionCard.png"),"collected":false},
+                {"id":8,"url":require("../assets/collectionCard.png"),"collected":false},],
       startX:0,
+      result:{},
     };
   },
+  beforeCreate(){
+    let that = this
+    axios.get('http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token,{
+      params:{}
+      }).then(function(response){
+        console.log(response.data.result)
+        for(let i=0 ; i<response.data.result.length;i++){
+          if(response.data.result[i]){
+            let cardName = response.data.result[i].cardName
+            that.pictures[parseInt(cardName)-1].collected = true
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  },
   methods: {
+    back(){
+      this.$router.push({path: '/',query:{page: 3}})
+    },
     srcollGoTo(x){
       let that = this
       let now = this.$refs.scroll_div.scrollLeft;
@@ -90,7 +112,7 @@ export default {
   background-attachment: fixed;
   overflow: hidden;
 }
-.collection{
+.collection1{
   height: 45px;
   line-height:45px;
   width: 150px;
