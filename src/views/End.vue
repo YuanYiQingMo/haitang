@@ -3,9 +3,11 @@
         <div id="background"></div>
         <div id="content">
             <div class="collection" @click="goCollection">我 的 集 卡</div>
-            <div class="picture"></div>
-            <div class="saveButton" @click="tosave">保 存 图 片</div>
-            <div class="saved" v-show=savedimg>已保存至图库</div>
+            <div class="picture">
+                <img class="pic" :src="this.arr[this.card-1].url" />
+            </div>
+            <div class="saveButton">长按图片进行保存</div>
+            <!-- <div class="saved" v-show=savedimg>已保存至图库</div> -->
         </div>
     </div>
 </template>
@@ -14,21 +16,39 @@
 export default {
     data() {
         return {
+            card:0,
             savedimg:false,
+            arr:[
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+                {"url":require("../assets/collectionCard.png")},
+            ]
+            
         }
     },
-    beforeCreate(){
-        let card = this.$route.query.card
-        console.log(card)
+    beforeMount(){
+        this.card = this.$route.query.card
     },
+    // beforeMount(){
+    //     for(var i=0;i<8;i++){
+    //         if(this.arr[i].id==card){
+                
+    //         }
+    //     }
+    // },
     methods: {
-        tosave:function(){
-            let that = this;
-            this.savedimg=true
-            setTimeout(function () {
-                that.savedimg=false
-            }, 2000)
-        },
+        // tosave:function(){
+        //     let that = this;
+        //     this.savedimg=true
+        //     setTimeout(function () {
+        //         that.savedimg=false
+        //     }, 2000)
+        // },
         goCollection(){
             this.$router.push({path: '/collection'})
         }
@@ -80,10 +100,14 @@ export default {
     background: url("../assets/card/background.png");
     opacity: 0.7;
 }
+.pic{
+    height: 100%;
+    width: 100%;
+}
 .saveButton{
     flex:0 0 50px;
     line-height: 50px;
-    width:160px;
+    width:200px;
     background: url("../assets/card/save.png") no-repeat center center;
     border-radius: 10px;
     font-size: 22px;
