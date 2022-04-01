@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+  import axios from 'axios'
   export default {
     data() {
       return {
@@ -31,7 +32,7 @@
         isDown: false,
         isViewAutograph: this.$route.query.isViews > 0,
         contractSuccess: this.$route.query.contractSuccess,
-        top:''
+        top:'',
       }
     },
     mounted() {
@@ -106,8 +107,16 @@
       },
       touchEnd() {
         //返回随机卡片序号
-        this.$router.push({path: '/end',query:{card: this.randomCard()}})
-        // this.canvasTxt.clearRect(0,0,9999,9999); //绘图完毕清空canvas
+        let cardId = this.randomCard();
+        this.$router.push({path: '/end',query:{card: cardId}})
+        axios.defaults.baseURL = 'http://101.42.225.75:1000/'
+        axios.post('/api/v1/card/user', {
+            "cardId": cardId,
+        }).then(response => {
+            console.log('/api/v1/card/user', response.data)
+        }, error => {
+            console.log('错误', error.message)
+        })
       },
 
   }
