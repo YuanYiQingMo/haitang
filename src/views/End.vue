@@ -2,11 +2,14 @@
     <div id="save">
         <div id="background"></div>
         <div id="content">
-            <div class="collection" @click="goCollection">我 的 集 卡</div>
+            <div class="twoButton">
+                <div class="collection" @click="goBack">返 回 集 卡</div>
+                <div class="collection" @click="goCollection">我 的 集 卡</div>
+            </div>
             <div class="picture">
                 <img class="pic" :src="this.arr[this.card-1].url" />
             </div>
-            <div class="saveButton">长按图片进行保存</div>
+            <div class="saveButton">&nbsp;长按图片进行保存&nbsp;<span></span></div>
             <!-- <div class="saved" v-show=savedimg>已保存至图库</div> -->
         </div>
     </div>
@@ -51,6 +54,9 @@ export default {
         // },
         goCollection(){
             this.$router.push({path: '/collection'})
+        },
+        goBack(){
+            this.$router.push({path: '/',query:{page: 3}})
         }
     }
 }
@@ -80,15 +86,22 @@ export default {
     align-items: center;
 }
 .collection{
-    flex: 0 0 45px;
+    height: 45px;
     line-height:45px;
-    width: 150px;
+    width: 120px;
     font-size: 22px;
     text-align:center;
     background: url("../assets/card/collection.png") no-repeat center center ;
-    align-self:flex-end;
     border-radius: 10px;
     color:#b1898d;
+}
+.twoButton{
+    flex: 0 0 46px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
 }
 .picture{
     flex: 1;
@@ -107,13 +120,18 @@ export default {
 .saveButton{
     flex:0 0 50px;
     line-height: 50px;
-    width:200px;
+    width:100%;
     background: url("../assets/card/save.png") no-repeat center center;
     border-radius: 10px;
     font-size: 22px;
     text-align:center;
     color:#b1898d;
+    text-align: justify;
 }
+.saveButton>span{
+    display: inline-block;
+    padding-left: 100%;
+    }
 .saved{
     position: absolute;
     top:45%;

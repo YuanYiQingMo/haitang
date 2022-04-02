@@ -4,7 +4,7 @@
     <div id="content">
       <img id="pad" src="../assets/draw/pad.png" ref="canvasHW"/>
       <div id="text">
-        <div class="font1">随心画海棠符<span></span></div>
+        <div class="font1">随心画海棠花<span></span></div>
         <div class="font1">抽限定明信片<span></span></div>
       </div>
     </div>
@@ -33,6 +33,7 @@
         isViewAutograph: this.$route.query.isViews > 0,
         contractSuccess: this.$route.query.contractSuccess,
         top:'',
+        jumping: false,
         Id:['1417768962','-1597935614','474050562','1723953154','1807839234','927035393','-792629246','-1216253950']
       }
     },
@@ -47,43 +48,47 @@
     methods: {
       //mobile
       touchStart(ev) {
-        ev = ev || event
-        ev.preventDefault()
-        if (ev.touches.length == 1) {
-          let obj = {
-            x: ev.targetTouches[0].clienX,
-            y: ev.targetTouches[0].clientY,
+        if(!this.jumping){
+          ev = ev || event
+          ev.preventDefault()
+          if (ev.touches.length == 1) {
+            let obj = {
+              x: ev.targetTouches[0].clienX,
+              y: ev.targetTouches[0].clientY,
+            }
+            this.startX = obj.x
+            this.startY = obj.y
+            this.canvasTxt.beginPath()
+            this.canvasTxt.moveTo(this.startX, this.startY)
+            this.canvasTxt.lineTo(obj.x, obj.y)
+            this.canvasTxt.stroke()
+            this.canvasTxt.closePath()
+            this.points.push(obj)
           }
-          this.startX = obj.x
-          this.startY = obj.y
-          this.canvasTxt.beginPath()
-          this.canvasTxt.moveTo(this.startX, this.startY)
-          this.canvasTxt.lineTo(obj.x, obj.y)
-          this.canvasTxt.stroke()
-          this.canvasTxt.closePath()
-          this.points.push(obj)
         }
       },
       touchMove(ev) {
-        ev = ev || event
-        ev.preventDefault()
-        if (ev.touches.length == 1) {
-          let obj = {
-            x: ev.targetTouches[0].clientX - this.stageInfo.left,
-            y: ev.targetTouches[0].clientY - this.stageInfo.top
+        if(!this.jumping){
+          ev = ev || event
+          ev.preventDefault()
+          if (ev.touches.length == 1) {
+            let obj = {
+              x: ev.targetTouches[0].clientX - this.stageInfo.left,
+              y: ev.targetTouches[0].clientY - this.stageInfo.top
+            }
+            this.canvasTxt.lineWidth = 8;
+            this.canvasTxt.strokeStyle = "#b1898d";
+            this.moveY = obj.y
+            this.moveX = obj.x
+            this.canvasTxt.beginPath()
+            this.canvasTxt.moveTo(this.startX, this.startY)
+            this.canvasTxt.lineTo(obj.x, obj.y)
+            this.canvasTxt.stroke()
+            this.canvasTxt.closePath()
+            this.startY = obj.y
+            this.startX = obj.x
+            this.points.push(obj)
           }
-          this.canvasTxt.lineWidth = 8;
-          this.canvasTxt.strokeStyle = "#b1898d";
-          this.moveY = obj.y
-          this.moveX = obj.x
-          this.canvasTxt.beginPath()
-          this.canvasTxt.moveTo(this.startX, this.startY)
-          this.canvasTxt.lineTo(obj.x, obj.y)
-          this.canvasTxt.stroke()
-          this.canvasTxt.closePath()
-          this.startY = obj.y
-          this.startX = obj.x
-          this.points.push(obj)
         }
       },
       randomCard(){
@@ -108,11 +113,18 @@
       },
       touchEnd() {
         //返回随机卡片序号
-        var cardId = this.randomCard();
-        this.$router.push({path: '/end',query:{card: cardId}})
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST','http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
-        xhr.send(null);
+        let that = this
+        if(!that.jumping){
+          var cardId = this.randomCard();
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST','http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
+          xhr.send(null);
+          that.jumping = true
+          setTimeout(function(){
+            that.$router.push({path: '/end',query:{card: cardId}})
+          },2000)
+        }
+
       },
 
   }
