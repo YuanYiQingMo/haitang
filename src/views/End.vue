@@ -98,7 +98,7 @@ export default {
     margin:5% 0;
     border-radius: 15px;
     background: url("../assets/card/background.png");
-    opacity: 0.7;
+    /* opacity: 0.7; */
 }
 .pic{
     height: 100%;

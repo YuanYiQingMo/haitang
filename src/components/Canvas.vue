@@ -110,14 +110,9 @@
         //返回随机卡片序号
         var cardId = this.randomCard();
         this.$router.push({path: '/end',query:{card: cardId}})
-        console.log(this.Id[cardId-1])
         var xhr = new XMLHttpRequest();
         xhr.open('POST','http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
         xhr.send(null);
-        xhr.onload = function(e){
-          var json = JSON.parse(e.target.response)
-          console.log(json);
-        }
       },
 
   }

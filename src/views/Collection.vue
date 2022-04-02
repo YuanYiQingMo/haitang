@@ -39,7 +39,6 @@ export default {
     axios.get('http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token,{
       params:{}
       }).then(function(response){
-        console.log(response.data.result)
         for(let i=0 ; i<response.data.result.length;i++){
           if(response.data.result[i]){
             let cardName = response.data.result[i].cardName
@@ -80,8 +79,7 @@ export default {
       let x 
       let stop = false
       var timer = setInterval(function() {
-        console.log(Math.abs(that.$refs.scroll_div.scrollLeft-x)<100)
-        if(that.$refs.scroll_div.scrollLeft === x){
+        if(that.$refs.scroll_div.scrollLeft === x ){
           clearInterval(timer);
           stop = true
         }
@@ -90,10 +88,8 @@ export default {
         }
         if(stop){
           if(that.$refs.scroll_div.scrollLeft<that.$refs.scroll_div.scrollWidth/4){
-            console.log('go0')
             that.go0()
           }else if(that.$refs.scroll_div.scrollLeft>that.$refs.scroll_div.scrollWidth/4){
-            console.log('go1')
             that.go1()
           }
         }
