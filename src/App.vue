@@ -16,6 +16,8 @@
 #app {
     width: 100vw;
     height: 100vh;
-    background: rgb(255, 169, 169);
+    background: url('assets/background.png') no-repeat center center ;
+    background-size: cover;
+    /* background: rgb(255, 169, 169); */
 }
 </style>

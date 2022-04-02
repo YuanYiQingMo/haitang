@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100vw;height: 100vh;">
-    <img id="background" src="../assets/background.png"/>
+    <!-- <img id="background" src="../assets/s.png"/> -->
     <div id="content">
       <img id="pad" src="../assets/draw/pad.png" ref="canvasHW"/>
       <div id="text">
