@@ -1,6 +1,6 @@
 <template>
   <div id="homePage">
-    <div class="collection1" @click="back">返 回 集 卡</div>
+    <div class="collection1" @click="back">返 回 抽 卡</div>
     <div id="main" ref="scroll_div" @touchend='touchEnd'>
       <div id="pictures">
         <div v-for="item in pictures" :key="item.id" class="picture">
