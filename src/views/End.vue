@@ -3,7 +3,7 @@
         <div id="background"></div>
         <div id="content">
             <div class="twoButton">
-                <div class="collection" @click="goBack">返 回 集 卡</div>
+                <div class="collection" @click="goBack">返 回 抽 卡</div>
                 <div class="collection" @click="goCollection">我 的 集 卡</div>
             </div>
             <div class="picture">
