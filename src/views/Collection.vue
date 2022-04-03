@@ -1,11 +1,13 @@
 <template>
   <div id="homePage">
-    <div class="collection1" @click="back">返 回 抽 卡</div>
+    <div class="collection1" @click="back">
+      <img src="../assets/text/DrawCard.png" class="BackText"/>
+    </div>
     <div id="main" ref="scroll_div" @touchend='touchEnd'>
       <div id="pictures">
         <div v-for="item in pictures" :key="item.id" class="picture">
           <img v-if="item.collected" :src="item.url" class="card"/>
-          <div v-if="!item.collected" class="unattained"><div class="font">未获得</div></div>
+          <div v-if="!item.collected" class="unattained"><div class="font"></div></div>
         </div>
       </div>
     </div>
@@ -176,8 +178,18 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+.BackText{
+  margin-left: 15%;
+  margin-top: 8%;
+  width: 70%;
+  height: auto;
+  display: block;
+}
 .font{
-  margin-left: 40%;
+  background: url('../assets/text/Unattained.png') no-repeat;
+  background-size: 80% 80%;
+  margin-left: 35%;
+  margin-top: 4%;
   height:50px;
   line-height: 50px;
   width: 50%;

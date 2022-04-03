@@ -4,8 +4,9 @@
     <div id="content">
       <img id="pad" src="../assets/draw/pad.png" ref="canvasHW"/>
       <div id="text">
-        <div class="font1">随心画海棠花<span></span></div>
-        <div class="font1">抽限定明信片<span></span></div>
+        <img src="../assets/text/Draw.png" class="canvas_text">
+        <!-- <div class="font1">随心画海棠花<span></span></div>
+        <div class="font1">抽限定明信片<span></span></div> -->
       </div>
     </div>
     <canvas ref="canvasF" @touchstart='touchStart' @touchmove='touchMove' @touchend='touchEnd' :style="{top: top+'px'}"></canvas>
@@ -153,15 +154,15 @@
     height: 162vw;
   }
   #text{
-    margin-top: 5px;
+    margin-top: 1vh;
     width: 100vw;
     height: 20vw;
     background: url("../assets/draw/text.png");
     background-size: 100% 100%;
-    padding: 2.5vw 25vw 2vw 25vw;
+    padding: 2vw 20vw 2vw 20vw;
     box-sizing: border-box;
   }
-  .font1{
+  /* .font1{
     font-size: 5vw;
     text-align: justify;
     height: 7vw;
@@ -170,6 +171,10 @@
   .font1>span{
     display: inline-block;
     padding-left: 100%;
+  } */
+  .canvas_text{
+    height: auto;
+    width: 100%;
   }
   canvas{
     position: absolute;

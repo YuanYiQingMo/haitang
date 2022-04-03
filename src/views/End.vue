@@ -3,8 +3,12 @@
         <div id="background"></div>
         <div id="content">
             <div class="twoButton">
-                <div class="collection" @click="goBack">返 回 抽 卡</div>
-                <div class="collection" @click="goCollection">我 的 集 卡</div>
+                <div class="collection" @click="goBack">
+                    <img src="../assets/text/Drawagain.png" class="topButtonText">
+                </div>
+                <div class="collection" @click="goCollection">
+                    <img src="../assets/text/Collection.png" class="topButtonText">
+                </div>
             </div>
             <div class="picture">
                 <img class="pic" :src="this.arr[this.card-1].url" />
@@ -103,6 +107,12 @@ export default {
     justify-content:space-between;
     align-items: center;
 }
+.topButtonText{
+    margin: 10%;
+    width: 80%;
+    height: 45%;
+    display: block;
+}
 .picture{
     flex: 1;
     width: 100%;
@@ -121,7 +131,7 @@ export default {
     flex:0 0 50px;
     line-height: 50px;
     width:100%;
-    background: url("../assets/card/save.png") no-repeat center center;
+    background-color: rgb(245, 233, 240);
     border-radius: 10px;
     font-size: 22px;
     text-align:center;
