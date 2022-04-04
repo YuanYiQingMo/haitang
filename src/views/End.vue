@@ -13,7 +13,9 @@
             <div class="picture">
                 <img class="pic" :src="this.arr[this.card-1].url" />
             </div>
-            <div class="saveButton">&nbsp;长按图片进行保存&nbsp;<span></span></div>
+            <div class="saveButton">
+                <img src="../assets/text/Save.png">
+            </div>
             <!-- <div class="saved" v-show=savedimg>已保存至图库</div> -->
         </div>
     </div>
@@ -133,15 +135,13 @@ export default {
     width:100%;
     background-color: rgb(245, 233, 240);
     border-radius: 10px;
-    font-size: 22px;
-    text-align:center;
-    color:#b1898d;
-    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.saveButton>span{
-    display: inline-block;
-    padding-left: 100%;
-    }
+.saveButton>img{
+    width: 75%;
+}
 .saved{
     position: absolute;
     top:45%;
