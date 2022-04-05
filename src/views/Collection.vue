@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       currentPage: 0,
-      pictures:[{"id":1,"url":require("../assets/cards/1.png"),"collected":false},
-                {"id":2,"url":require("../assets/cards/2.png"),"collected":false},
+      pictures:[{"id":1,"url":require("../assets/cards/11.png"),"collected":false},
+                {"id":2,"url":require("../assets/cards/22.png"),"collected":false},
                 {"id":3,"url":require("../assets/cards/3.png"),"collected":false},
                 {"id":4,"url":require("../assets/cards/4.png"),"collected":false},
                 {"id":5,"url":require("../assets/cards/5.png"),"collected":false},

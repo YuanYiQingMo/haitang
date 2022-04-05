@@ -27,24 +27,24 @@ export default {
     },
     beforeCreate(){
         let that = this
-        // let token = this.$route.query.token
-        // var xhr = new XMLHttpRequest();
-        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/client?token='+token);
-        // xhr.send(null);
-        // xhr.onload = function(e){
-        // var json = JSON.parse(e.target.response)
-        // console.log(json.result);
-        // that.$store.commit('setToken', xhr.response.result)
-        // }
-
-
+        let token = this.$route.query.token
         var xhr = new XMLHttpRequest();
-        xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX110454528QAQ@&userNumber=3021005190');
+        xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/client?token='+token);
         xhr.send(null);
         xhr.onload = function(e){
-            var json = JSON.parse(e.target.response)
-            that.$store.commit('setToken', json.result)
+        var json = JSON.parse(e.target.response)
+        console.log(json.result);
+        that.$store.commit('setToken', xhr.response.result)
         }
+
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX110454528QAQ@&userNumber=3021005190');
+        // xhr.send(null);
+        // xhr.onload = function(e){
+        //     var json = JSON.parse(e.target.response)
+        //     that.$store.commit('setToken', json.result)
+        // }
     },
     mounted(){
         if(this.$route.query.page){
