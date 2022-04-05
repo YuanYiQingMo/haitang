@@ -28,16 +28,15 @@ export default {
             card:0,
             savedimg:false,
             arr:[
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-                {"url":require("../assets/collectionCard.png")},
-            ]
-            
+                {"url":require("../assets/cards/1.png")},
+                {"url":require("../assets/cards/2.png")},
+                {"url":require("../assets/cards/3.png")},
+                {"url":require("../assets/cards/4.png")},
+                {"url":require("../assets/cards/5.png")},
+                {"url":require("../assets/cards/6.png")},
+                {"url":require("../assets/cards/7.png")},
+                {"url":require("../assets/cards/8.png")},
+            ]    
         }
     },
     beforeMount(){
@@ -140,7 +139,7 @@ export default {
     align-items: center;
 }
 .saveButton>img{
-    width: 75%;
+    width: 60%;
 }
 .saved{
     position: absolute;

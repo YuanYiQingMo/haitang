@@ -94,21 +94,21 @@
       },
       randomCard(){
         var numdsf = Math.floor(Math.random()*(1 - 100) + 100);
-        if(numdsf>=1&&numdsf<=10){
+        if(numdsf>=1&&numdsf<=5){
             return 1;
-        }else if(numdsf>=11&&numdsf<=20){
+        }else if(numdsf>=6&&numdsf<=10){
             return 2;
-        }else if(numdsf>=21&&numdsf<=40){
+        }else if(numdsf>=11&&numdsf<=25){
             return 3;
-        }else if(numdsf>=41&&numdsf<=60){
+        }else if(numdsf>=26&&numdsf<=40){
             return 4;
-        }else if(numdsf>=61&&numdsf<=70){
+        }else if(numdsf>=41&&numdsf<=55){
             return 5;
-        }else if(numdsf>=71&&numdsf<=80){
+        }else if(numdsf>=56&&numdsf<=70){
             return 6;
-        }else if(numdsf>=81&&numdsf<=90){
+        }else if(numdsf>=71&&numdsf<=85){
             return 7;
-        }else if(numdsf>=91&&numdsf<=100){
+        }else if(numdsf>=86&&numdsf<=100){
             return 8;
         }
       },
@@ -123,7 +123,7 @@
           that.jumping = true
           setTimeout(function(){
             that.$router.push({path: '/end',query:{card: cardId}})
-          },2000)
+          },1500)
         }
 
       },

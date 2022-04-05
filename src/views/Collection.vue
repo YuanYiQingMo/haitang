@@ -5,15 +5,15 @@
     </div>
     <div id="main" ref="scroll_div" @touchend='touchEnd'>
       <div id="pictures">
-        <div v-for="item in pictures" :key="item.id" class="picture">
-          <img v-if="item.collected" :src="item.url" class="card"/>
+        <div v-for="(item,index) in pictures" :key="item.id" class="picture">
+          <img v-if="item.collected" :src="item.url" class="card" @click="cardMsg(index)" />
           <div v-if="!item.collected" class="unattained"><div class="font"></div></div>
         </div>
       </div>
     </div>
     <div id="twoCircles">
-      <div :class="{'circle1': currentPage, 'circle2': !currentPage}" @click="go0"></div>
-      <div :class="{'circle1': !currentPage, 'circle2': currentPage}" @click="go1"></div>
+      <div :class="{'circle1': !currentPage, 'circle2': currentPage}" @click="go0"></div>
+      <div :class="{'circle1': currentPage, 'circle2': !currentPage}" @click="go1"></div>
     </div>
 
   </div>
@@ -24,14 +24,14 @@ export default {
   data() {
     return {
       currentPage: 0,
-      pictures:[{"id":1,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":2,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":5,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":6,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":3,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":4,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":7,"url":require("../assets/collectionCard.png"),"collected":false},
-                {"id":8,"url":require("../assets/collectionCard.png"),"collected":false},],
+      pictures:[{"id":1,"url":require("../assets/cards/1.png"),"collected":false},
+                {"id":2,"url":require("../assets/cards/2.png"),"collected":false},
+                {"id":3,"url":require("../assets/cards/3.png"),"collected":false},
+                {"id":4,"url":require("../assets/cards/4.png"),"collected":false},
+                {"id":5,"url":require("../assets/cards/5.png"),"collected":false},
+                {"id":6,"url":require("../assets/cards/6.png"),"collected":false},
+                {"id":7,"url":require("../assets/cards/7.png"),"collected":false},
+                {"id":8,"url":require("../assets/cards/8.png"),"collected":false},],
       startX:0,
       result:{},
     };
@@ -53,6 +53,9 @@ export default {
       })
   },
   methods: {
+    cardMsg(index){
+      this.$router.push({path: '/card',query:{card: index+1}})
+    },
     back(){
       this.$router.push({path: '/',query:{page: 3}})
     },
