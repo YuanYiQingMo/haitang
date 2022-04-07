@@ -33,8 +33,7 @@ export default {
         xhr.send(null);
         xhr.onload = function(e){
         var json = JSON.parse(e.target.response)
-        console.log(json.result);
-        that.$store.commit('setToken', xhr.response.result)
+        that.$store.commit('setToken', json.result)
         }
 
 
