@@ -38,7 +38,7 @@ export default {
 
 
         // var xhr = new XMLHttpRequest();
-        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX110454528QAQ@&userNumber=3021005190');
+        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=111@&userNumber=111');
         // xhr.send(null);
         // xhr.onload = function(e){
         //     var json = JSON.parse(e.target.response)
