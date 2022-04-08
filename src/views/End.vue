@@ -83,7 +83,7 @@ export default {
 #content{
     position: absolute;
     width: 84%;
-    height: 92%;
+    height: 88%;
     margin:7% 7% 0% 7%;
     display: flex;
     flex-direction: column;
@@ -102,7 +102,7 @@ export default {
 }
 .twoButton{
     flex: 0 0 46px;
-    width: 100%;
+    width: 95%;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
@@ -116,7 +116,7 @@ export default {
 }
 .picture{
     flex: 1;
-    width: 100%;
+    width: 95%;
     margin:7% 2% 7% 2%;
     border-radius: 5px;
     margin:5% 0;
@@ -129,9 +129,10 @@ export default {
     width: 100%;
 }
 .saveButton{
+    margin-top: 1vh;
     flex:0 0 50px;
     line-height: 50px;
-    width:100%;
+    width:95%;
     background-color: rgb(245, 233, 240);
     border-radius: 10px;
     display: flex;

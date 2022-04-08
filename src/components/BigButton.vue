@@ -36,7 +36,10 @@ export default {
     transform: scale(1.0);
     cursor: pointer;
     transform: all 2s;
+    border-radius: 25vw;
+    outline:none;
 }
+#main-btn:focus{outline:none;}
 
 #main-btn:hover{
     transform: scale(1.2);

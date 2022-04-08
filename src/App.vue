@@ -13,11 +13,16 @@
 .fade-enter, .fade-leave-active {
     opacity: 0
 }
+body{
+    overflow: hidden;
+    margin: 0;
+}
 #app {
     width: 100vw;
     height: 100vh;
     background: url('assets/background.png') no-repeat center center ;
     background-size: cover;
     /* background: rgb(255, 169, 169); */
+    overflow: hidden;
 }
 </style>
