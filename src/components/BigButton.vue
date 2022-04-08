@@ -1,5 +1,7 @@
 <template>
-    <img @click="play" id="main-btn" src="../assets/click/buttons.svg" />
+    <div @click="play" style="height:100vh;width:100vw">
+        <div id="main-btn"></div>
+    </div>
 </template>
 
 <script>
@@ -14,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 @keyframes changeRight {
     0% {
         transform: rotate(0deg);
@@ -28,18 +31,20 @@ export default {
     }
 }
 #main-btn {
+    background-image: url("../assets/click/buttons.png");
+    background-size: 100% 100%;
     position: absolute;
+    left: 25vw;
     top: 25vh;
     width: 50vw;
     height: 50vw;
     animation:changeRight 15s linear infinite;
     transform: scale(1.0);
-    cursor: pointer;
     transform: all 2s;
     border-radius: 25vw;
     outline:none;
 }
-#main-btn:focus{outline:none;}
+#main-btn:focus{outline:0;}
 
 #main-btn:hover{
     transform: scale(1.2);

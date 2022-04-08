@@ -97,7 +97,7 @@ export default {
       this.$router.push({path: '/card',query:{card: index+1}})
     },
     back(){
-      this.$router.push({path: '/',query:{page: 3}})
+      this.$router.push({path: '/',query:{page: 3,token:this.$store.state.token0}})
     },
     srcollGoTo(x){
       let that = this
@@ -149,14 +149,15 @@ export default {
         xhr.send(null);
         xhr.onload = function(e){
           var json = JSON.parse(e.target.response)
-          if(json.result.code===1){ //不知道返回值，条件待补全
+          console.log(json)
+          if(json.error_code===0){
             setTimeout(function(){
               that.display.success = true
             },500)
             setTimeout(function(){
               that.display.success = false
             },2000)
-          }else if(json.result.code===0){
+          }else if(json.error_code===30005){
             setTimeout(function(){
               that.display.fail = true
             },500)
