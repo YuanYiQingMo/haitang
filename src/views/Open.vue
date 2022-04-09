@@ -30,7 +30,7 @@ export default {
         let token = this.$route.query.token
         that.$store.commit('setToken0', token)
         var xhr = new XMLHttpRequest();
-        xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/client?token='+token);
+        xhr.open('POST','http://202.113.13.171/api/v1/auth/client?token='+token);
         xhr.send(null);
         xhr.onload = function(e){
             var json = JSON.parse(e.target.response)
@@ -42,7 +42,7 @@ export default {
 
 
         // var xhr = new XMLHttpRequest();
-        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX&userNumber=3021');
+        // xhr.open('POST','http://202.113.13.171/api/v1/auth/wechat?password=LHX&userNumber=3021');
         // xhr.send(null);
         // xhr.onload = function(e){
         //     var json = JSON.parse(e.target.response)

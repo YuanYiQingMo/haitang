@@ -118,7 +118,7 @@
         if(!that.jumping){
           var cardId = this.randomCard();
           var xhr = new XMLHttpRequest();
-          xhr.open('POST','http://120.48.17.78:1000/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
+          xhr.open('POST','http://202.113.13.171/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
           xhr.send(null);
           that.jumping = true
           setTimeout(function(){
