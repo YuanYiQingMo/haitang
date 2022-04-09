@@ -80,7 +80,7 @@ export default {
 #content{
   position: absolute;
   width: 84%;
-  height: 92%;
+  height: 88%;
   margin:7% 7% 0% 7%;
   display: flex;
   flex-direction: column;
@@ -88,9 +88,8 @@ export default {
   align-items: center;
 }
 .collection{
-  height: 45px;
-  line-height:45px;
-  width: 120px;
+  height: 35px;
+  width: 100px;
   font-size: 22px;
   text-align:center;
   background: url("../assets/card/collection.png") no-repeat center center ;
@@ -98,25 +97,24 @@ export default {
   color:#b1898d;
 }
 .twoButton{
-  flex: 0 0 46px;
-  width: 100%;
+  flex: 0 0 40px;
+  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content:flex-end;
   align-items: center;
 }
 .topButtonText{
-  margin: 10%;
-  width: 80%;
-  height: 45%;
-  display: block;
+    margin: 10% 15%;
+    width: 70%;
+    height: 45%;
+    display: block;
 }
 .picture{
   flex: 1;
-  width: 100%;
-  margin:7% 2% 7% 2%;
+  width: 95%;
   border-radius: 5px;
-  margin:5% 0;
+  margin:4% 0;
   border-radius: 15px;
   background: url("../assets/card/background.png");
   /* opacity: 0.7; */
@@ -126,9 +124,10 @@ export default {
   width: 100%;
 }
 .saveButton{
-  flex:0 0 50px;
+  margin-top: 1vh;
+  flex:0 0 40px;
   line-height: 50px;
-  width:100%;
+  width:95%;
   background-color: rgb(245, 233, 240);
   border-radius: 10px;
   display: flex;
@@ -136,7 +135,7 @@ export default {
   align-items: center;
 }
 .saveButton>img{
-  width: 60%;
+  width: 50%;
 }
 .saved{
   position: absolute;

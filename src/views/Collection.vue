@@ -195,10 +195,9 @@ export default {
   position: absolute;
 }
 .collection1{
-  height: 40px;
-  line-height:45px;
+  height: 35px;
   margin-right: 5px;
-  width: 120px;
+  width: 100px;
   font-size: 22px;
   text-align:center;
   background: url("../assets/card/collection.png") no-repeat center center ;
@@ -259,8 +258,8 @@ export default {
   height: 9vh;
 }
 .unattained{
-  margin-top: 74%;
-  height: 25%;
+  margin-top: 85%;
+  height: 20%;
   width: 200%;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px;
   background-color: #f5e9f0;
@@ -272,16 +271,15 @@ export default {
 }
 .BackText{
   margin-left: 15%;
-  margin-top: 8%;
+  margin-top: 10%;
   width: 70%;
   height: auto;
   display: block;
 }
 .font{
-  background: url('../assets/text/Unattained.png') no-repeat;
-  background-size: 70% 75%;
-  margin-left: 37%;
-  margin-top: 5%;
+  background: url('../assets/text/Unattained.png') no-repeat center center;
+  background-size: 50% 50%;
+  margin-left: 30%;
   height:50px;
   width: 50%;
 }
@@ -303,8 +301,8 @@ export default {
   }
 #bigButton{
   margin-left: 6vh;
-  width: 40vw;
-  height: 9vh;
+  width: 35vw;
+  height: 8vh;
   border-radius: 15px;
   background-color: #f5e9f0;
   display: flex;
@@ -315,10 +313,10 @@ export default {
   font-size: 20px;
 }
 #bigButton_font1{
-  font-size: 20px;
+  font-size: 18px;
 }
 #bigButton_font2{
-  font-size: 15px;
+  font-size: 13px;
 }
 #question{
   margin-left: 1vh;

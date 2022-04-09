@@ -173,8 +173,10 @@
     padding-left: 100%;
   } */
   .canvas_text{
+    margin-top: 2.5%;
+    margin-left: 7.5%;
     height: auto;
-    width: 100%;
+    width: 85%;
   }
   canvas{
     position: absolute;
