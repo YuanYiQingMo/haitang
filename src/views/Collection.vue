@@ -73,7 +73,7 @@ export default {
   },
   beforeCreate(){
     let that = this
-    axios.get('http://202.113.13.171/api/v1/card/user'+'?token='+this.$store.state.token,{
+    axios.get('http://haitang.twt.edu.cn/api/v1/card/user'+'?token='+this.$store.state.token,{
       params:{}
       }).then(function(response){
         for(let i=0 ; i<response.data.result.length;i++){
@@ -145,7 +145,7 @@ export default {
       let that = this
       if(that.cardNumber>=5){
         var xhr = new XMLHttpRequest();
-        xhr.open('POST','http://202.113.13.171/api/v1/skin/user'+'?token='+that.$store.state.token+'&skinId='+'-1040093182');
+        xhr.open('POST','http://haitang.twt.edu.cn/api/v1/skin/user'+'?token='+that.$store.state.token+'&skinId='+'-1040093182');
         xhr.send(null);
         xhr.onload = function(e){
           var json = JSON.parse(e.target.response)
