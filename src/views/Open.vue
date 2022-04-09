@@ -33,17 +33,23 @@ export default {
         xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/client?token='+token);
         xhr.send(null);
         xhr.onload = function(e){
-        var json = JSON.parse(e.target.response)
-        that.$store.commit('setToken', json.result)
+            var json = JSON.parse(e.target.response)
+            that.$store.commit('setToken', json.result)
+            if(json.message==='曾经登录过'){
+                    that.currentPage=3
+                }
         }
 
 
         // var xhr = new XMLHttpRequest();
-        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX&userNumber=3021005190');
+        // xhr.open('POST','http://120.48.17.78:1000/api/v1/auth/wechat?password=LHX110454528QAQ@&userNumber=3021005190');
         // xhr.send(null);
         // xhr.onload = function(e){
         //     var json = JSON.parse(e.target.response)
         //     that.$store.commit('setToken', json.result)
+        //     if(json.message==='曾经登录过'){
+        //         that.currentPage=3
+        //     }
         // }
     },
     mounted(){
