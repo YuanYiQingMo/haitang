@@ -98,7 +98,7 @@ export default {
       this.$router.push({path: '/card',query:{card: index+1}})
     },
     back(){
-      this.$router.push({path: '/',query:{page: 3,token:this.$store.state.token0}})
+      this.$router.push({path: '/',query:{page: 3,newToken:this.$store.state.token}})
     },
     srcollGoTo(x){
       let that = this

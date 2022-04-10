@@ -58,7 +58,7 @@ export default {
           this.$router.push({path: '/collection'})
       },
       goBack(){
-        this.$router.push({path: '/',query:{page: 3,token:this.$store.state.token0}})
+        this.$router.push({path: '/',query:{page: 3,newToken:this.$store.state.token}})
       }
   }
 }
