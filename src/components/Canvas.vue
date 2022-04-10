@@ -35,7 +35,7 @@
         contractSuccess: this.$route.query.contractSuccess,
         top:'',
         jumping: false,
-        Id:['1','2','3','4','5','6','7','8']
+        Id:['-1966591998','-708300799','780677121','1833447425','1346908161','1309159425','629682177','-58183679']
       }
     },
     mounted() {
@@ -118,7 +118,7 @@
         if(!that.jumping){
           var cardId = this.randomCard();
           var xhr = new XMLHttpRequest();
-          xhr.open('POST','http://haitang.twt.edu.cn/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
+          xhr.open('POST','https://haitang.twt.edu.cn/api/v1/card/user'+'?token='+this.$store.state.token+'&cardId='+this.Id[cardId-1]);
           xhr.send(null);
           that.jumping = true
           setTimeout(function(){
