@@ -9,7 +9,7 @@ export default {
     methods:{
         play(){
             // this.$emit('nextPage');
-            this.$parent.nextPage();
+            this.$parent.Page3();
         }
     }
 };

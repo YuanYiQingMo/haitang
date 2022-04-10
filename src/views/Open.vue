@@ -59,7 +59,10 @@ export default {
     },
     methods:{
         nextPage(){
-            this.currentPage++;
+            this.currentPage=2;
+        },
+        Page3(){
+            this.currentPage=3;
         }
     }
 };

@@ -69,6 +69,7 @@ export default {
       result:{},
       cardNumber:0,
       display:{'illustrate':false,'success':false,'fail':false,'sorry':false},
+      stopBigButton:false,
     };
   },
   beforeCreate(){
@@ -143,35 +144,41 @@ export default {
     },
     exchange(){
       let that = this
-      if(that.cardNumber>=5){
+      if(that.cardNumber>=5&&!that.stopBigButton){
         var xhr = new XMLHttpRequest();
-        xhr.open('POST','https://haitang.twt.edu.cn/api/v1/skin/user'+'?token='+that.$store.state.token+'&skinId='+'-1040093182');
+        xhr.open('POST','https://haitang.twt.edu.cn/api/v1/skin/user'+'?token='+that.$store.state.token+'&skinId='+'1271410690');
         xhr.send(null);
         xhr.onload = function(e){
           var json = JSON.parse(e.target.response)
           console.log(json)
           if(json.error_code===0){
+            that.stopBigButton = true
             setTimeout(function(){
               that.display.success = true
             },500)
             setTimeout(function(){
               that.display.success = false
+              that.stopBigButton = false
             },2000)
           }else if(json.error_code===30005){
+            that.stopBigButton = true
             setTimeout(function(){
               that.display.fail = true
             },500)
             setTimeout(function(){
               that.display.fail = false
+              that.stopBigButton = false
             },2000)
           }
         }
-      }else{
+      }else if(!that.stopBigButton){
+        that.stopBigButton = true
         setTimeout(function(){
               that.display.sorry = true
             },500)
             setTimeout(function(){
               that.display.sorry = false
+              that.stopBigButton = false
             },2000)
       }
     },
