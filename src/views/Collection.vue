@@ -416,7 +416,7 @@ export default {
   align-items: center;
 }
 #alert_sorry .sorry{
-  margin-top: 1.5vh;
+  margin-top: 1vh;
   height: auto;
   width: 80vw;
 }
