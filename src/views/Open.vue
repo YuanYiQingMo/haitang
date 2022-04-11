@@ -28,20 +28,30 @@ export default {
     beforeCreate(){
         let that = this
         let newToken = this.$route.query.newToken
+        let timerRun = 0
         if(newToken === undefined){
-            console.log(22222)
-            let token = this.$route.query.token
-            that.$store.commit('setToken0', token)
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST','https://haitang.twt.edu.cn/api/v1/auth/client?token='+token);
-            xhr.send(null);
-            xhr.onload = function(e){
-            var json = JSON.parse(e.target.response)
-            that.$store.commit('setToken', json.result)
-            if(json.message==='曾经登录过'){
-                    that.currentPage=3
+            let timer = setInterval(function(){
+                let token = that.$route.query.token
+                that.$store.commit('setToken0', token)
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST','https://haitang.twt.edu.cn/api/v1/auth/client?token='+token);
+                xhr.send(null);
+                xhr.onloadend = function(e){
+                    if(e.target.status===200){
+                        clearInterval(timer)
+                    }
+                    var json = JSON.parse(e.target.response)
+                    that.$store.commit('setToken', json.result)
+                    if(json.message==='曾经登录过'){
+                            that.currentPage = 3
+                        }
                 }
-            }
+                timerRun++
+                if(timerRun>=5){
+                    clearInterval(timer)
+                }
+            },200)
+
         }else{
             let newToken = this.$route.query.newToken
             that.$store.commit('setToken', newToken)

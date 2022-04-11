@@ -102,7 +102,7 @@ export default {
     },
     srcollGoTo(x){
       let that = this
-      let now = this.$refs.scroll_div.scrollLeft;
+      let now = that.$refs.scroll_div.scrollLeft;
       let step = (x-now)/50;
       var timer = setInterval(function() {
         that.$refs.scroll_div.scrollLeft = that.$refs.scroll_div.scrollLeft + step;
