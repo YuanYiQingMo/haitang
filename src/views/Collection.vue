@@ -399,7 +399,7 @@ export default {
   top: 35vh;
   left: 20%;
   width: 60%;
-  height: 20%;
+  height: 22%;
   display: flex;
   flex-direction: column;
   align-items: center;
